@@ -17,7 +17,7 @@ offsetca = random.sample(range(-3,3),6)
 # Colors!
 yellow = (255, 206, 7)
 light_blue = (2, 168, 190)
-dark_blue = (0, 114, 171)
+dark_blue = (2, 135, 172)
 white = (224, 238, 246)
 
 
