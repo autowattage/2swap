@@ -20,23 +20,33 @@ mouth_idle = pygame.transform.scale_by(pygame.image.load(os.path.join("images", 
 
 eye_current = eye_idle
 mouth_current = mouth_idle
-blink_timer = 0
-blink_frame = 0
+timer = 0
+frame = 0
 blinking = False
-
+doubleblink = False
+fps = 12
 def update_face(surface, dt):
-    global blinking, blink_timer, eye_current, blink_frame
+    global blinking, doubleblink, timer, eye_current, frame, fps
+    timer += dt
     if blinking:
-        blink_timer += dt
-        if blink_frame == len(eye_blink):
-            blink_frame = 0
-            blinking = False
+        if frame == len(eye_blink):
             eye_current = eye_idle
-        elif blink_timer >= 1000/10:
-            print("Frame elapse")
-            eye_current = eye_blink[blink_frame]
-            blink_frame = (blink_frame+1)
-            blink_timer = 0
+            frame = 0
+            blinking = False
+            doubleblink = random.random() > 0.5
+        elif timer >= 1000/fps:
+            eye_current = eye_blink[frame]
+            frame += 1
+            timer = 0
+    if doubleblink:
+        if frame == len(eye_doubleblink):
+            eye_current = eye_idle
+            frame = 0
+            doubleblink = False
+        elif timer >= 1000/fps:
+            eye_current = eye_doubleblink[frame]
+            frame += 1
+            timer = 0
 
     surface.blit(eye_current, (0,0))
     surface.blit(mouth_current, (0,0))
@@ -44,5 +54,4 @@ def update_face(surface, dt):
 def blink():
     global blinking
     blinking = True
-    print("Blink")
    

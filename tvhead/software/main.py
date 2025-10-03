@@ -44,7 +44,7 @@ while running:
             running = False
         elif event.type == face_event:
             face.blink()
-            pygame.time.set_timer(face_event, random.randint(3,8)*1000)
+            pygame.time.set_timer(face_event, random.randint(1500,4000)) # 2500 6000
     draw_bgstripes(light_blue, dark_blue) #that cool striped background
 
     face.update_face(screen, dt)
