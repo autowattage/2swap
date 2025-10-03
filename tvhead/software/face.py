@@ -22,36 +22,34 @@ eye_current = eye_idle
 mouth_current = mouth_idle
 timer = 0
 frame = 0
-blinking = False
-doubleblink = False
+anim_playing = [False, False]
 fps = 12
+
+def animate(frames, anim_id):
+    global eye_current, anim_playing, eye_idle, frame, timer
+    if anim_playing[anim_id]:
+        if frame == len(frames):
+            eye_current = eye_idle
+            frame = 0
+            anim_playing[anim_id] = False
+            if anim_id==0 and random.random()>0.5:
+                anim_playing[1] = True
+        elif timer >= 1000/fps:
+            eye_current = frames[frame]
+            frame += 1
+            timer = 0
+    
 def update_face(surface, dt):
-    global blinking, doubleblink, timer, eye_current, frame, fps
+    global timer
     timer += dt
-    if blinking:
-        if frame == len(eye_blink):
-            eye_current = eye_idle
-            frame = 0
-            blinking = False
-            doubleblink = random.random() > 0.5
-        elif timer >= 1000/fps:
-            eye_current = eye_blink[frame]
-            frame += 1
-            timer = 0
-    if doubleblink:
-        if frame == len(eye_doubleblink):
-            eye_current = eye_idle
-            frame = 0
-            doubleblink = False
-        elif timer >= 1000/fps:
-            eye_current = eye_doubleblink[frame]
-            frame += 1
-            timer = 0
+
+    animate(eye_blink, 0)
+    animate(eye_doubleblink, 1)
 
     surface.blit(eye_current, (0,0))
     surface.blit(mouth_current, (0,0))
     
 def blink():
-    global blinking
-    blinking = True
+    global anim_playing
+    anim_playing[0] = True
    

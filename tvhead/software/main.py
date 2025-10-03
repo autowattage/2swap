@@ -50,7 +50,7 @@ while running:
     face.update_face(screen, dt)
 
     # load into screen
-    apply_ca(offsetca, 3) #chromatic aberration
+    apply_ca(offsetca, 5) #chromatic aberration
     pygame.display.flip()
 
     # update tick variables
