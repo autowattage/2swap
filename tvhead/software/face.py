@@ -2,21 +2,21 @@ import pygame
 import os
 import random
 # eyes
-eye_idle = pygame.transform.scale_by(pygame.image.load(os.path.join("images", "eyes", "idle.png")),0.5)
+eye_idle = pygame.image.load(os.path.join("images", "eyes", "idle.png"))
 eye_blink = [
-    pygame.transform.scale_by(pygame.image.load(os.path.join("images", "eyes", "blink1.png")),0.5),
-    pygame.transform.scale_by(pygame.image.load(os.path.join("images", "eyes", "blink2.png")),0.5),
-    pygame.transform.scale_by(pygame.image.load(os.path.join("images", "eyes", "blink3.png")),0.5),
-    pygame.transform.scale_by(pygame.image.load(os.path.join("images", "eyes", "blink4.png")),0.5),
-    pygame.transform.scale_by(pygame.image.load(os.path.join("images", "eyes", "blink5.png")),0.5)
+    pygame.image.load(os.path.join("images", "eyes", "blink1.png")),
+    pygame.image.load(os.path.join("images", "eyes", "blink2.png")),
+    pygame.image.load(os.path.join("images", "eyes", "blink3.png")),
+    pygame.image.load(os.path.join("images", "eyes", "blink4.png")),
+    pygame.image.load(os.path.join("images", "eyes", "blink5.png"))
 ]
 eye_doubleblink = [
-    pygame.transform.scale_by(pygame.image.load(os.path.join("images", "eyes", "doubleblink1.png")),0.5),
-    pygame.transform.scale_by(pygame.image.load(os.path.join("images", "eyes", "doubleblink2.png")),0.5),
-    pygame.transform.scale_by(pygame.image.load(os.path.join("images", "eyes", "doubleblink3.png")),0.5)
+    pygame.image.load(os.path.join("images", "eyes", "doubleblink1.png")),
+    pygame.image.load(os.path.join("images", "eyes", "doubleblink2.png")),
+    pygame.image.load(os.path.join("images", "eyes", "doubleblink3.png"))
 ]
 # mouth
-mouth_idle = pygame.transform.scale_by(pygame.image.load(os.path.join("images", "mouth", "idle.png")),0.5)
+mouth_idle = pygame.image.load(os.path.join("images", "mouth", "idle.png"))
 
 eye_current = eye_idle
 mouth_current = mouth_idle

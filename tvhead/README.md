@@ -11,7 +11,8 @@
 4. solder the electet microphone to pins XX and XX on the rpi
 
 ### running the software
-1. install raspberry pi os (bullseye) on your rpi
-2. install [pygame](https://pygame.org)
+1. install dietpi on your rpi
+2. install lxde, tigervnc, x11vnc
+3. install python3, [pygame](https://pygame.org), and numpy (pip install numpy)
 3. install the [bno055 driver](https://docs.circuitpython.org/projects/bno055/en/latest/index.html)
 

@@ -5,13 +5,13 @@ import numpy as np
 import face
 
 pygame.init()
-screen = pygame.display.set_mode((700, 525))
+screen = pygame.display.set_mode((1400, 1050))
 clock = pygame.time.Clock()
 running = True
 
 width, height = screen.get_width(), screen.get_height()
 stripe_move = 0 #internal counter variable for screen
-stripe_speed = 0.02/2 #downscaled...
+stripe_speed = 0.02 #downscaled...
 offsetca = random.sample(range(-3,3),6) #offset range for chromatic aberration
 
 face_event = pygame.USEREVENT+1
