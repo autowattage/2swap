@@ -36,9 +36,10 @@ def apply_ca(offset, flicker_offset):
         arrayca[:,:,i%3] = np.roll(arrayca[:,:,i%3], offset[i], axis=1-i//3)
     arrayca[:,:,:] += random.randint(0,flicker_offset) # screen flicker
     pygame.surfarray.blit_array(screen, arrayca)
-    
+
 while running:
     dt = clock.tick(60) # 60 FPS
+    print(clock.get_fps())
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
