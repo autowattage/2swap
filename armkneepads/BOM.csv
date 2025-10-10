@@ -1,0 +1,6 @@
+Item,Price,Quantity,Notes,Link
+CR2032 battery holder (2x3v),$3.28,4.00,powers the circuit,https://mou.sr/3JIAE64
+Blue LEDS,$0.12,8.00,x4 for each LED,https://mou.sr/4mY8Snm
+270 ohm resistors,$0.10,8.00,"x4 for the blue LEDS, https://ledcalculator.net/#p=6&v=3.5&c=10&n=4&o=w",https://mou.sr/4mSkE2p
+120 ohm resistors,$0.10,4.00,x2 for the yellow LEDS https://ledcalculator.net/#p=6&v=2.4&c=10&n=4&o=w,https://mou.sr/4nIfFT7
+Total,$15.28,(taxes not included),,
