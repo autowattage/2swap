@@ -42,10 +42,8 @@ def animate(frames, anim_id):
 def update_face(surface, dt):
     global timer
     timer += dt
-
     animate(eye_blink, 0)
     animate(eye_doubleblink, 1)
-
     surface.blit(eye_current, (0,0))
     surface.blit(mouth_current, (0,0))
     

@@ -2,7 +2,7 @@ import pygame
 import random
 import numpy as np
 
-import face
+import eyes, tilt
 
 pygame.init()
 screen = pygame.display.set_mode((1400, 1050))
@@ -39,16 +39,20 @@ def apply_ca(offset, flicker_offset):
 
 while running:
     dt = clock.tick(60) # 60 FPS
-    print(clock.get_fps())
+    #print(clock.get_fps())
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        elif event.type == face_event:
-            face.blink()
+        elif (not tilt.expression()) and (event.type == face_event):
+            eyes.blink()
             pygame.time.set_timer(face_event, random.randint(1500,4000)) # 2500 6000
     draw_bgstripes(light_blue, dark_blue) #that cool striped background
-
-    face.update_face(screen, dt)
+    
+    tilt.update_face(screen)
+    print(tilt.expression())
+    if tilt.expression()==None:
+    	eyes.update_face(screen, dt)
 
     # load into screen
     apply_ca(offsetca, 5) #chromatic aberration
@@ -56,6 +60,7 @@ while running:
 
     # update tick variables
     stripe_move = stripe_move+stripe_speed*dt if stripe_move<height/2.5 else 0
+    
 
 pygame.quit()
 
