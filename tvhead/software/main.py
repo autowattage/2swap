@@ -2,10 +2,11 @@ import pygame
 import random
 import numpy as np
 
-import eyes, tilt
+import eyes, mouth, tilt
 
 pygame.init()
-screen = pygame.display.set_mode((1400, 1050))
+flags = pygame.FULLSCREEN
+screen = pygame.display.set_mode((1400, 1050), flags)
 clock = pygame.time.Clock()
 running = True
 
@@ -39,7 +40,7 @@ def apply_ca(offset, flicker_offset):
 
 while running:
     dt = clock.tick(60) # 60 FPS
-    #print(clock.get_fps())
+    print(clock.get_fps())
     
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -50,8 +51,8 @@ while running:
     draw_bgstripes(light_blue, dark_blue) #that cool striped background
     
     tilt.update_face(screen)
-    print(tilt.expression())
     if tilt.expression()==None:
+    	mouth.update_face(screen)
     	eyes.update_face(screen, dt)
 
     # load into screen
