@@ -1,7 +1,10 @@
 import gpiozero
-
 import pygame
 import os
+
+# Until I can get my hands on an analog->digital convertor, this is the best I can do
+mic_pin = 1
+mic = gpiozero.DigitalInputDevice(mic_pin)
 
 mouths = [
     pygame.image.load(os.path.join("images", "mouth", "idle.png")),
@@ -15,17 +18,10 @@ curr_mouth = None
 
 def update_face(surface):
     global curr_mouth
-    keys = pygame.key.get_pressed()
-    if keys[pygame.K_v]:
-    	curr_mouth = mouths[4]
-    elif keys[pygame.K_c]:
+    if mic.value > 0:
     	curr_mouth = mouths[3]
-    elif keys[pygame.K_x]:
-    	curr_mouth = mouths[2]
-    elif keys[pygame.K_z]:
-    	curr_mouth = mouths[1]
     else:
     	curr_mouth = mouths[0]
     
-    surface.blit(curr_mouth, (0,0))
+    surface.blit(curr_mouth, (0,-500))
    

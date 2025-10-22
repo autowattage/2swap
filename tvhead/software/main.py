@@ -1,7 +1,6 @@
 import pygame
 import random
 import numpy as np
-
 import eyes, mouth, tilt
 
 pygame.init()
@@ -12,7 +11,6 @@ running = True
 
 width, height = screen.get_width(), screen.get_height()
 stripe_move = 0 #internal counter variable for screen
-stripe_speed = 0.02 #downscaled...
 offsetca = random.sample(range(-3,3),6) #offset range for chromatic aberration
 
 face_event = pygame.USEREVENT+1
@@ -39,7 +37,7 @@ def apply_ca(offset, flicker_offset):
     pygame.surfarray.blit_array(screen, arrayca)
 
 while running:
-    dt = clock.tick(60) # 60 FPS
+    dt = clock.tick(500) # many fps..
     print(clock.get_fps())
     
     for event in pygame.event.get():
@@ -56,11 +54,11 @@ while running:
     	eyes.update_face(screen, dt)
 
     # load into screen
-    apply_ca(offsetca, 5) #chromatic aberration
+    #apply_ca(offsetca, 5) #chromatic aberration -- use for lower fps
     pygame.display.flip()
 
     # update tick variables
-    stripe_move = stripe_move+stripe_speed*dt if stripe_move<height/2.5 else 0
+    stripe_move = stripe_move+0.02*dt if stripe_move<height/2.5 else 0
     
 
 pygame.quit()
