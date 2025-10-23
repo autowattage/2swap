@@ -4,8 +4,8 @@ import numpy as np
 import eyes, mouth, tilt
 
 pygame.init()
-flags = pygame.FULLSCREEN
-screen = pygame.display.set_mode((1400, 1050), flags)
+#flags = pygame.FULLSCREEN
+screen = pygame.display.set_mode((1400, 1050))#, flags)
 clock = pygame.time.Clock()
 running = True
 
@@ -38,7 +38,7 @@ def apply_ca(offset, flicker_offset):
 
 while running:
     dt = clock.tick(500) # many fps..
-    print(clock.get_fps())
+    #print(clock.get_fps())
     
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
