@@ -4,8 +4,8 @@ import numpy as np
 import eyes, mouth, tilt
 
 pygame.init()
-#flags = pygame.FULLSCREEN
-screen = pygame.display.set_mode((1400, 1050))#, flags)
+flags = pygame.FULLSCREEN
+screen = pygame.display.set_mode((1400, 1050), flags)
 clock = pygame.time.Clock()
 running = True
 
