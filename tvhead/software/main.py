@@ -47,9 +47,11 @@ while running:
             eyes.blink()
             pygame.time.set_timer(face_event, random.randint(1500,4000)) # 2500 6000
     draw_bgstripes(light_blue, dark_blue) #that cool striped background
-    
-    tilt.update_face(screen)
-    if tilt.expression()==None:
+
+    buttons.update_face(screen)
+    if not buttons.active():
+        tilt.update_face(screen)
+    else if tilt.expression()==None:
     	mouth.update_face(screen)
     	eyes.update_face(screen, dt)
 
