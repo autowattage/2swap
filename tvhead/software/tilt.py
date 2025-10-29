@@ -16,16 +16,15 @@ expressions = [
 curr_expr = None
 
 def update_face(surface):
-    global curr_expr#, sensor
-    print(sensor.temperature)
-    print(sensor.euler)
-    print(sensor.gravity)
-    keys = pygame.key.get_pressed()
-    if keys[pygame.K_w]:
+    global curr_expr, sensor
+    rotation = sensor.euler
+    print(rotation)
+    #keys = pygame.key.get_pressed()
+    if rotation[2] > 60:
     	curr_expr = expressions[0]
-    elif keys[pygame.K_a]:
+    elif rotation[0] < 60:
     	curr_expr = expressions[1]
-    elif keys[pygame.K_d]:
+    elif rotation[1] > 260:
     	curr_expr = expressions[2]
     else:
     	curr_expr = None
