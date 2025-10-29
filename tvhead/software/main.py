@@ -1,11 +1,11 @@
 import pygame
 import random
 import numpy as np
-import eyes, mouth, tilt
+import eyes, mouth, tilt #, buttons
 
 pygame.init()
 flags = pygame.FULLSCREEN
-screen = pygame.display.set_mode((1400, 1050), flags)
+screen = pygame.display.set_mode((1400, 1050)) #, flags)
 clock = pygame.time.Clock()
 running = True
 
@@ -48,10 +48,10 @@ while running:
             pygame.time.set_timer(face_event, random.randint(1500,4000)) # 2500 6000
     draw_bgstripes(light_blue, dark_blue) #that cool striped background
 
-    buttons.update_face(screen)
-    if not buttons.active():
-        tilt.update_face(screen)
-    else if tilt.expression()==None:
+    #buttons.update_face(screen)
+    #if not buttons.active():
+    tilt.update_face(screen)
+    if tilt.expression()==None:
     	mouth.update_face(screen)
     	eyes.update_face(screen, dt)
 
