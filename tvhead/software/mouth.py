@@ -28,7 +28,7 @@ def get_volume(indata, frames, time, status):
     volume = int(numpy.linalg.norm(indata)*10)
     moving_avg.append(volume)
     volume = int(sum(moving_avg)*5/ len(moving_avg))
-    print(volume*"|")
+    #print(volume*"|")
     if volume>30:
     	curr_mouth = mouths[4]
     elif volume>22:
