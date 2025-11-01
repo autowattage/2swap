@@ -29,13 +29,13 @@ def get_volume(indata, frames, time, status):
     moving_avg.append(volume)
     volume = int(sum(moving_avg)*5/ len(moving_avg))
     #print(volume*"|")
-    if volume>30:
+    if volume>50:
     	curr_mouth = mouths[4]
-    elif volume>22:
+    elif volume>40:
     	curr_mouth = mouths[3]
-    elif volume>10:
+    elif volume>30:
     	curr_mouth = mouths[2]
-    elif volume>3:
+    elif volume>20:
     	curr_mouth = mouths[1]
     else:
     	curr_mouth = mouths[0]

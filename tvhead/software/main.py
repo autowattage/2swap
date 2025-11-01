@@ -50,10 +50,10 @@ while running:
 
     #buttons.update_face(screen)
     #if not buttons.active():
-    tilt.update_face(screen)
-    if tilt.expression()==None:
-    	mouth.update_face(screen)
-    	eyes.update_face(screen, dt)
+    #tilt.update_face(screen)
+    #if tilt.expression()==None:
+    mouth.update_face(screen)
+    eyes.update_face(screen, dt)
 
     # load into screen
     #apply_ca(offsetca, 5) #chromatic aberration -- use for lower fps
