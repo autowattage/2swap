@@ -20,7 +20,7 @@ moving_avg = deque(maxlen=8)
 def update_face(screen):
     global curr_mouth, mouths
     #print(curr_mouth)
-    screen.blit(curr_mouth, (0,0)) #-500 bc my screen too small lol
+    screen.blit(curr_mouth, (250,0)) #-500 bc my screen too small lol
     
 def get_volume(indata, frames, time, status):
     global mouths, curr_mouth, screen
@@ -29,13 +29,13 @@ def get_volume(indata, frames, time, status):
     moving_avg.append(volume)
     volume = int(sum(moving_avg)*5/ len(moving_avg))
     #print(volume*"|")
-    if volume>50:
+    if volume>55:
     	curr_mouth = mouths[4]
-    elif volume>40:
+    elif volume>45:
     	curr_mouth = mouths[3]
-    elif volume>30:
+    elif volume>35:
     	curr_mouth = mouths[2]
-    elif volume>20:
+    elif volume>25:
     	curr_mouth = mouths[1]
     else:
     	curr_mouth = mouths[0]
