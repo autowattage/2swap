@@ -20,7 +20,7 @@ moving_avg = deque(maxlen=8)
 def update_face(screen):
     global curr_mouth, mouths
     #print(curr_mouth)
-    screen.blit(curr_mouth, (250,0)) #-500 bc my screen too small lol
+    screen.blit(curr_mouth, (0,0)) #-500 bc my screen too small lol
     
 def get_volume(indata, frames, time, status):
     global mouths, curr_mouth, screen
@@ -45,6 +45,6 @@ def start_audio_stream():
         sd.sleep(1000000)
 
 # thread for audio because it cant run same time as pygame...
-audio_thread = threading.Thread(target=start_audio_stream)
-audio_thread.start()
+#audio_thread = threading.Thread(target=start_audio_stream)
+#audio_thread.start()
 

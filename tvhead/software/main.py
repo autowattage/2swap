@@ -1,13 +1,14 @@
 import pygame
 import random
 import numpy as np
-import eyes, mouth, tilt #, buttons
+import eyes, mouth #, tilt #, buttons
+
+running = True
+fullscreen = True
 
 pygame.init()
-flags = pygame.NOFRAME #pygame.FULLSCREEN
-screen = pygame.display.set_mode((1900, 1100), flags)
+screen = pygame.display.set_mode((1440, 1050), pygame.FULLSCREEN)
 clock = pygame.time.Clock()
-running = True
 
 width, height = screen.get_width(), screen.get_height()
 stripe_move = 0 #internal counter variable for screen
@@ -43,9 +44,17 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        elif (not tilt.expression()) and (event.type == face_event):
+        #elif (not tilt.expression()) and (event.type == face_event):
+        elif (event.type == face_event):
             eyes.blink()
             pygame.time.set_timer(face_event, random.randint(1500,4000)) # 2500 6000
+        elif (event.type == pygame.KEYDOWN):
+            if (event.key == pygame.K_f):
+                fullscreen = not fullscreen
+                if fullscreen:
+                    screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+                else:
+                    screen = pygame.display.set_mode((1200, 850))
     draw_bgstripes(light_blue, dark_blue) #that cool striped background
 
     #buttons.update_face(screen)
