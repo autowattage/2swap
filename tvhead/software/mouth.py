@@ -24,11 +24,11 @@ def update_face(screen):
     
 def get_volume(indata, frames, time, status):
     global mouths, curr_mouth, screen
-    #print(sd.query_devices())
+    print(sd.query_devices())
     volume = int(numpy.linalg.norm(indata)*10)
     moving_avg.append(volume)
     volume = int(sum(moving_avg)*5/ len(moving_avg))
-    #print(volume*"|")
+    print(volume*"|")
     if volume>55:
     	curr_mouth = mouths[4]
     elif volume>45:
@@ -45,6 +45,6 @@ def start_audio_stream():
         sd.sleep(1000000)
 
 # thread for audio because it cant run same time as pygame...
-#audio_thread = threading.Thread(target=start_audio_stream)
-#audio_thread.start()
+audio_thread = threading.Thread(target=start_audio_stream)
+audio_thread.start()
 

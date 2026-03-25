@@ -6,6 +6,7 @@ import eyes, mouth #, tilt #, buttons
 running = True
 fullscreen = True
 
+# initalize pygame (lol)
 pygame.init()
 screen = pygame.display.set_mode((1440, 1050), pygame.FULLSCREEN)
 clock = pygame.time.Clock()
@@ -14,6 +15,7 @@ width, height = screen.get_width(), screen.get_height()
 stripe_move = 0 #internal counter variable for screen
 offsetca = random.sample(range(-3,3),6) #offset range for chromatic aberration
 
+# blinking interval
 face_event = pygame.USEREVENT+1
 pygame.time.set_timer(face_event, 1000)
 
@@ -44,7 +46,7 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        #elif (not tilt.expression()) and (event.type == face_event):
+        #elif (not tilt.expression()) and (event.type == face_event): # Tilt sensor broken
         elif (event.type == face_event):
             eyes.blink()
             pygame.time.set_timer(face_event, random.randint(1500,4000)) # 2500 6000
